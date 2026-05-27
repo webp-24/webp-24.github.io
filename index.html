@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Para Paula 💛</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --amarillo: #ffd93b;
+      --amarillo-oscuro: #f4b400;
+      --fondo: #0b0b10;
+      --texto: #fdfdfd;
+      --acento: #ff9f1c;
+      --card: #15151f;
+      --rosa: #ff6f91;
+      --azul: #3a86ff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #222 0, #050509 55%);
+      color: var(--texto);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Fondo con partículas suaves */
+    .bg-particles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(255, 217, 59, 0.15) 0, transparent 50%),
+        radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.08) 0, transparent 55%),
+        radial-gradient(circle at 20% 80%, rgba(255, 159, 28, 0.12) 0, transparent 55%);
+      filter: blur(0.3px);
+      animation: bgMove 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes bgMove {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      100% { transform: translate3d(-20px, 10px, 0) scale(1.03); }
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(5, 5, 9, 0.9), rgba(5, 5, 9, 0.4));
+      border-bottom: 1px solid rgba(255, 217, 59, 0.25);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .logo-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #fff 0, var(--amarillo) 40%, var(--amarillo-oscuro) 100%);
+      box-shadow: 0 0 18px rgba(255, 217, 59, 0.8);
+      animation: pulseGlow 2.4s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 16px rgba(255, 217, 59, 0.7); }
+      50% { transform: scale(1.08); box-shadow: 0 0 26px rgba(255, 217, 59, 1); }
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.1rem;
+      opacity: 0.8;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--amarillo), var(--rosa));
+      border-radius: 999px;
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* HERO */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+      padding: 2.5rem 2rem;
+      border-radius: 24px;
+      background: radial-gradient(circle at top left, rgba(255, 217, 59, 0.18) 0, transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(255, 111, 145, 0.18) 0, transparent 55%),
+                  rgba(10, 10, 18, 0.9);
+      border: 1px solid rgba(255, 217, 59, 0.35);
+      box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.8),
+        0 0 0 1px rgba(255, 255, 255, 0.02);
+      margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "YELLOW";
+      position: absolute;
+      right: -40px;
+      top: 40%;
+      font-size: 5rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      color: rgba(255, 217, 59, 0.04);
+      transform: rotate(-90deg);
+      pointer-events: none;
+    }
+
+    .hero-left h1 {
+      font-size: clamp(2.4rem, 3vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-highlight {
+      background: linear-gradient(90deg, var(--amarillo), var(--rosa));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      opacity: 0.85;
+      max-width: 30rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .tag {
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid rgba(255, 217, 59, 0.5);
+      background: rgba(10, 10, 18, 0.7);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      padding: 0.6rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--amarillo), var(--amarillo-oscuro));
+      color: #1b1300;
+      box-shadow: 0 12px 30px rgba(255, 217, 59, 0.6);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(255, 217, 59, 0.8);
+    }
+
+    .btn-ghost {
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(10, 10, 18, 0.7);
+      color: var(--texto);
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .hero-right {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .orbit {
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      border: 1px dashed rgba(255, 217, 59, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      animation: orbitSpin 18s linear infinite;
+    }
+
+    @keyframes orbitSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .orbit-dot {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #fff 0, var(--amarillo) 40%, var(--amarillo-oscuro) 100%);
+      box-shadow: 0 0 18px rgba(255, 217, 59, 0.9);
+    }
+
+    .orbit-dot:nth-child(1) { top: -7px; left: 50%; transform: translateX(-50%); }
+    .orbit-dot:nth-child(2) { right: -7px; top: 50%; transform: translateY(-50%); }
+    .orbit-dot:nth-child(3) { bottom: -7px; left: 50%; transform: translateX(-50%); }
+    .orbit-dot:nth-child(4) { left: -7px; top: 50%; transform: translateY(-50%); }
+
+    .hero-core {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fff 0, var(--amarillo) 40%, #f4b400 70%, #f08c00 100%);
+      box-shadow:
+        0 0 40px rgba(255, 217, 59, 0.9),
+        0 0 80px rgba(255, 217, 59, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-core span {
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: #3b2600;
+    }
+
+    .hero-core::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.7) 0, transparent 40%);
+      mix-blend-mode: screen;
+    }
+
+    .hero-floating {
+      position: absolute;
+      bottom: -10px;
+      right: -10px;
+      padding: 0.6rem 0.9rem;
+      border-radius: 16px;
+      background: rgba(10, 10, 18, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+      animation: floatCard 4s ease-in-out infinite;
+    }
+
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .hero-floating-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      opacity: 0.7;
+    }
+
+    .hero-floating-main {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #00f5d4;
+      box-shadow: 0 0 10px rgba(0, 245, 212, 0.9);
+    }
+
+    /* SECCIONES GENERALES */
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-title span {
+      font-size: 1.2rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      opacity: 0.75;
+      margin-bottom: 1.4rem;
+      max-width: 32rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.8;
+      margin-bottom: 0.6rem;
+    }
+
+    /* GRID PELÍCULAS / LIBROS */
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    .card {
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.04) 0, transparent 55%),
+                  var(--card);
+      border-radius: 18px;
+      padding: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
+      border-color: rgba(255, 217, 59, 0.5);
+    }
+
+    .card-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      opacity: 0.7;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .card-sub {
+      font-size: 0.8rem;
+      opacity: 0.8;
+      margin-bottom: 0.6rem;
+    }
+
+    .card-body {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    .card-accent {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.7) 0, rgba(255, 217, 59, 0.9) 40%, rgba(255, 159, 28, 0.9) 100%);
+      opacity: 0.12;
+      right: -20px;
+      top: -20px;
+      filter: blur(1px);
+    }
+
+    /* MÚSICA */
+
+    .music-card {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 1.2rem;
+      align-items: center;
+      padding: 1.2rem;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(255, 217, 59, 0.16), rgba(58, 134, 255, 0.16));
+      border: 1px solid rgba(255, 217, 59, 0.5);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+      margin-bottom: 1.4rem;
+    }
+
+    .music-cover {
+      width: 120px;
+      height: 120px;
+      border-radius: 18px;
+      background: radial-gradient(circle at 30% 30%, #fff 0, var(--amarillo) 40%, var(--amarillo-oscuro) 70%, #f3722c 100%);
+      box-shadow: 0 18px 40px rgba(255, 217, 59, 0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .music-cover::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), transparent 60%);
+      mix-blend-mode: screen;
+    }
+
+    .music-info-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .music-info-artist {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 0.6rem;
+    }
+
+    .music-quote {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      font-style: italic;
+      margin-bottom: 0.6rem;
+    }
+
+    .music-meta {
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    .music-bar {
+      margin-top: 0.6rem;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .music-bar-inner {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, var(--amarillo), var(--rosa), var(--azul));
+      background-size: 200% 100%;
+      animation: barMove 4s linear infinite;
+    }
+
+    @keyframes barMove {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(50%); }
+    }
+
+    /* SIGNIFICADOS */
+
+    .meaning-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    .meaning-card {
+      padding: 1rem;
+      border-radius: 18px;
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.04) 0, transparent 55%),
+                  var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .meaning-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      opacity: 0.7;
+      margin-bottom: 0.3rem;
+    }
+
+    .meaning-word {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .meaning-lang {
+      font-size: 0.8rem;
+      opacity: 0.8;
+      margin-bottom: 0.4rem;
+    }
+
+    .meaning-text {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    .meaning-badge {
+      position: absolute;
+      right: 0.8rem;
+      top: 0.8rem;
+      font-size: 0.7rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(255, 217, 59, 0.12);
+      border: 1px solid rgba(255, 217, 59, 0.5);
+    }
+
+    /* PATA PLOMO */
+
+    .drink-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.4rem;
+      padding: 1.4rem;
+      border-radius: 20px;
+      background: radial-gradient(circle at top left, rgba(255, 217, 59, 0.18) 0, transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(255, 111, 145, 0.18) 0, transparent 55%),
+                  #14141f;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+    }
+
+    .drink-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .drink-text {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 0.6rem;
+    }
+
+    .drink-note {
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    .drink-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .glass {
+      width: 70px;
+      height: 130px;
+      border-radius: 18px 18px 10px 10px;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(10, 10, 18, 0.9));
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
+    }
+
+    .glass-liquid {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 60%;
+      background: linear-gradient(180deg, #ffd93b, #f4b400, #f3722c);
+      animation: liquidWave 3.5s ease-in-out infinite;
+      transform-origin: bottom center;
+    }
+
+    @keyframes liquidWave {
+      0%, 100% { transform: skewX(0deg); }
+      50% { transform: skewX(-4deg); }
+    }
+
+    .glass-bubble {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.8);
+      opacity: 0.7;
+      animation: bubbleUp 3s linear infinite;
+    }
+
+    .glass-bubble:nth-child(1) { left: 18px; bottom: 20px; animation-delay: 0s; }
+    .glass-bubble:nth-child(2) { left: 32px; bottom: 10px; animation-delay: 0.6s; }
+    .glass-bubble:nth-child(3) { left: 46px; bottom: 25px; animation-delay: 1.2s; }
+
+    @keyframes bubbleUp {
+      0% { transform: translateY(0); opacity: 0.7; }
+      80% { opacity: 0; }
+      100% { transform: translateY(-40px); opacity: 0; }
+    }
+
+    .drink-label {
+      position: absolute;
+      bottom: -0.8rem;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      opacity: 0.8;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 1.4rem 1.5rem 2rem;
+      font-size: 0.8rem;
+      opacity: 0.8;
+      text-align: center;
+    }
+
+    /* ANIMACIÓN ENTRADA SECCIONES */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 1.8rem 1.4rem;
+      }
+
+      .hero::before {
+        display: none;
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .music-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .drink-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+      }
+
+      .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .meaning-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      main {
+        padding-inline: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-particles"></div>
+
+  <header>
+    <nav class="nav">
+      <div class="logo">
+        <div class="logo-circle"></div>
+        <span>Para Paula</span>
+      </div>
+      <div class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#musica">Yellow</a>
+        <a href="#pelis">Películas</a>
+        <a href="#libros">Libros</a>
+        <a href="#significados">Significados</a>
+        <a href="#pata-plomo">Pata plomo</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="inicio" class="hero reveal">
+      <div class="hero-left">
+        <p class="pill">Para Paula · Enana oficial del universo amarillo</p>
+        <h1>
+          Esta es la pequeña galaxia
+          <span class="hero-highlight">amarilla</span>
+          de Paula.
+        </h1>
+        <p class="hero-subtitle">
+          Un rincón hecho de canciones que brillan, pelis que abrazan, historias de amor
+          y vasos de pata plomo que se brindan por todo lo que viene.
+        </p>
+        <div class="hero-tags">
+          <span class="tag">Yellow · Coldplay</span>
+          <span class="tag">Historias de amor</span>
+          <span class="tag">Narnia · Harry Potter</span>
+          <span class="tag">La Bella y la Bestia</span>
+          <span class="tag">Pata plomo vibes</span>
+        </div>
+        <div class="hero-cta">
+          <button class="btn-primary" onclick="scrollToSection('musica')">
+            Escuchar el universo amarillo
+            <span>▶</span>
+          </button>
+          <button class="btn-ghost" onclick="scrollToSection('significados')">
+            Ver qué significa “Paula” y “enana”
+          </button>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="orbit">
+          <div class="orbit-dot"></div>
+          <div class="orbit-dot"></div>
+          <div class="orbit-dot"></div>
+          <div class="orbit-dot"></div>
+          <div class="hero-core">
+            <span>PAULA</span>
+          </div>
+        </div>
+        <div class="hero-floating">
+          <span class="hero-floating-label">Estado actual</span>
+          <div class="hero-floating-main">
+            <div class="hero-dot"></div>
+            <span>Brillando más que todas las estrellas de Yellow.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MÚSICA -->
+    <section id="musica" class="reveal">
+      <h2 class="section-title">
+        <span>🎵</span> Yellow — la banda sonora de su universo
+      </h2>
+      <p class="section-subtitle">
+        Hay canciones que son como un abrazo. “Yellow” de Coldplay es una de esas:
+        su favorita, su himno, su forma de decir “estoy aquí”.
+      </p>
+
+      <div class="music-card">
+        <div class="music-cover"></div>
+        <div>
+          <div class="music-info-title">Yellow</div>
+          <div class="music-info-artist">Coldplay · Canción favorita de Paula</div>
+          <p class="music-quote">
+            “Look at the stars, look how they shine for you” — y sí, brillan un poco más
+            cuando piensan en ti.
+          </p>
+          <p class="music-meta">
+            Esta web está pintada de amarillo por esa canción: cada detalle, cada brillo,
+            cada luz suave es un guiño a ese tema que te acompaña siempre.
+          </p>
+          <div class="music-bar">
+            <div class="music-bar-inner"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PELÍCULAS -->
+    <section id="pelis" class="reveal">
+      <h2 class="section-title">
+        <span>🎬</span> Pelis que son refugio
+      </h2>
+      <p class="section-subtitle">
+        Hay historias que se quedan a vivir con nosotros. Estas tres son como casa:
+        magia, fantasía, amor y un poco de caos bonito.
+      </p>
+
+      <div class="grid-3">
+        <article class="card">
+          <div class="card-accent"></div>
+          <p class="card-tag">Crónicas de Narnia</p>
+          <h3 class="card-title">Puertas a otros mundos</h3>
+          <p class="card-sub">“Siempre hay un armario esperando a ser cruzado.”</p>
+          <p class="card-body">
+            Narnia es ese lugar donde lo imposible se vuelve normal: hablar con leones,
+            luchar por lo que importa y descubrir que eres más valiente de lo que creías.
+            Un poco como tú, que conviertes lo cotidiano en algo mágico.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-accent"></div>
+          <p class="card-tag">La Bella y la Bestia</p>
+          <h3 class="card-title">Amor que ve más allá</h3>
+          <p class="card-sub">“La belleza está en cómo miras, no solo en lo que ves.”</p>
+          <p class="card-body">
+            Una historia de amor que no se queda en la superficie. Como los libros que te
+            gustan, habla de segundas oportunidades, de ver el corazón antes que la apariencia
+            y de encontrar tu lugar incluso cuando no encajas del todo.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-accent"></div>
+          <p class="card-tag">Harry Potter</p>
+          <h3 class="card-title">Magia, amistad y cicatrices bonitas</h3>
+          <p class="card-sub">“Las cicatrices cuentan historias que merecen ser leídas.”</p>
+          <p class="card-body">
+            Hogwarts es ese sitio al que siempre puedes volver, aunque sea solo en tu cabeza.
+            Amistades que son familia, hechizos que arreglan (o lían) cosas y una certeza:
+            la luz siempre vuelve, incluso en los momentos más oscuros.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- LIBROS -->
+    <section id="libros" class="reveal">
+      <h2 class="section-title">
+        <span>📚</span> Historias de amor que se quedan
+      </h2>
+      <p class="section-subtitle">
+        A Paula le encantan los libros de historias de amor: esos que duelen un poco,
+        curan otro poco y te dejan pensando en los “y si…” mucho después de cerrar la última página.
+      </p>
+
+      <div class="grid-3">
+        <article class="card">
+          <div class="card-accent"></div>
+          <p class="card-tag">Capítulo 1</p>
+          <h3 class="card-title">Amores que empiezan sin querer</h3>
+          <p class="card-body">
+            Esos encuentros que parecen casualidad pero no lo son. Miradas que se cruzan
+            en el momento exacto, conversaciones que empiezan con un “hola” tímido y acaban
+            siendo un “quédate un rato más”.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-accent"></div>
+          <p class="card-tag">Capítulo 2</p>
+          <h3 class="card-title">Personajes que se parecen a ti</h3>
+          <p class="card-body">
+            Chicas que leen demasiado, que sienten fuerte, que se ríen alto y que a veces
+            se llaman “enana” con cariño. Protagonistas que se equivocan, pero siguen
+            apostando por el amor.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-accent"></div>
+          <p class="card-tag">Capítulo 3</p>
+          <h3 class="card-title">Finales que no siempre son perfectos</h3>
+          <p class="card-body">
+            Porque a veces lo bonito no es que todo salga bien, sino que haya alguien
+            que se quede incluso cuando las cosas se complican. Como en los mejores libros,
+            lo importante es el camino, no solo la última página.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SIGNIFICADOS -->
+    <section id="significados" class="reveal">
+      <h2 class="section-title">
+        <span>🌍</span> Qué significa “Paula” y qué significa “enana”
+      </h2>
+      <p class="section-subtitle">
+        Los nombres guardan historias. Y los apodos también. Aquí van algunos significados
+        y guiños en distintos idiomas, para que veas que hasta las palabras se ponen de tu parte.
+      </p>
+
+      <h3 class="pill">Nombre: Paula</h3>
+      <div class="meaning-grid" style="margin-bottom: 1.6rem;">
+        <article class="meaning-card">
+          <span class="meaning-badge">Latín</span>
+          <p class="meaning-label">Origen clásico</p>
+          <p class="meaning-word">Paula</p>
+          <p class="meaning-lang">Del latín “Paulus”</p>
+          <p class="meaning-text">
+            Tradicionalmente se interpreta como “pequeña” o “humilde”. Pero aquí lo
+            traducimos como: “la que hace grandes las cosas pequeñas”.
+          </p>
+        </article>
+
+        <article class="meaning-card">
+          <span class="meaning-badge">Griego</span>
+          <p class="meaning-label">Guiño simbólico</p>
+          <p class="meaning-word">Παύλα (Pávla)</p>
+          <p class="meaning-lang">Adaptación al griego moderno</p>
+          <p class="meaning-text">
+            En este universo, “Pávla” significa: “pausa luminosa”. Ese momento en el día
+            donde todo se detiene un segundo y respiras, como cuando suena tu canción favorita.
+          </p>
+        </article>
+
+        <article class="meaning-card">
+          <span class="meaning-badge">Inglés</span>
+          <p class="meaning-label">Traducción libre</p>
+          <p class="meaning-word">Little sun</p>
+          <p class="meaning-lang">“Pequeño sol”</p>
+          <p class="meaning-text">
+            No es una traducción literal, pero sí emocional: Paula como ese sol pequeño
+            que no quema, pero calienta justo lo necesario.
+          </p>
+        </article>
+
+        <article class="meaning-card">
+          <span class="meaning-badge">Inventado</span>
+          <p class="meaning-label">Diccionario personal</p>
+          <p class="meaning-word">Paula</p>
+          <p class="meaning-lang">Idioma: gente que te quiere</p>
+          <p class="meaning-text">
+            Significado oficial: “persona que se hace llamar enana, pero en realidad
+            le queda gigante el corazón”.
+          </p>
+        </article>
+      </div>
+
+      <h3 class="pill">Apodo: “Enana”</h3>
+      <div class="meaning-grid">
+        <article class="meaning-card">
+          <span class="meaning-badge">Español</span>
+          <p class="meaning-label">Uso cariñoso</p>
+          <p class="meaning-word">Enana</p>
+          <p class="meaning-lang">Diminutivo afectivo</p>
+          <p class="meaning-text">
+            Más que una referencia a la altura, es una forma de decir: “te tengo tanto cariño
+            que hasta tu tamaño me parece adorable”.
+          </p>
+        </article>
+
+        <article class="meaning-card">
+          <span class="meaning-badge">Griego</span>
+          <p class="meaning-label">Versión creativa</p>
+          <p class="meaning-word">μικρούλα (mikrúla)</p>
+          <p class="meaning-lang">“Pequeñita”</p>
+          <p class="meaning-text">
+            En griego, una forma cariñosa de decir “pequeña”. Aquí significa: “estrella
+            chiquita que brilla más de lo que aparenta”.
+          </p>
+        </article>
+
+        <article class="meaning-card">
+          <span class="meaning-badge">Inglés</span>
+          <p class="meaning-label">Traducción emocional</p>
+          <p class="meaning-word">Tiny star</p>
+          <p class="meaning-lang">“Estrellita”</p>
+          <p class="meaning-text">
+            No es solo “short” o “small”. Es “tiny star”: pequeña, sí, pero imposible
+            de ignorar en el cielo.
+          </p>
+        </article>
+
+        <article class="meaning-card">
+          <span class="meaning-badge">Diccionario interno</span>
+          <p class="meaning-label">Definición secreta</p>
+          <p class="meaning-word">Enana</p>
+          <p class="meaning-lang">Idioma: amistad</p>
+          <p class="meaning-text">
+            Persona a la que le dices “enana” pero en realidad significa: “te tengo tanta
+            confianza que puedo llamarte así y sabes que es puro cariño”.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PATA PLOMO -->
+    <section id="pata-plomo" class="reveal">
+      <h2 class="section-title">
+        <span>🥂</span> Pata plomo: brindis por las cosas buenas
+      </h2>
+      <p class="section-subtitle">
+        Entre risas, historias y canciones, aparece siempre el mismo ritual: un vaso,
+        un “pata plomo” y la sensación de que, por un momento, todo está en su sitio.
+      </p>
+
+      <div class="drink-card">
+        <div>
+          <p class="drink-title">Lo que significa aquí “pata plomo”</p>
+          <p class="drink-text">
+            Más allá de la bebida, “pata plomo” es una excusa para celebrar: los días buenos,
+            los días raros, las pelis repetidas, los libros que te rompen un poco y las
+            canciones que te arreglan después.
+          </p>
+          <p class="drink-text">
+            Es ese brindis que dice: “no sé qué viene después, pero quiero que estés ahí
+            para verlo conmigo”.
+          </p>
+          <p class="drink-note">
+            Nota oficial de esta web: cada vez que alguien diga “pata plomo”, una estrella
+            amarilla se enciende un poquito más en tu universo.
+          </p>
+        </div>
+        <div class="drink-visual">
+          <div class="glass">
+            <div class="glass-liquid"></div>
+            <div class="glass-bubble"></div>
+            <div class="glass-bubble"></div>
+            <div class="glass-bubble"></div>
+          </div>
+          <span class="drink-label">Brindis por Paula</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Hecho con mucho amarillo, un poco de magia y un montón de cariño para Paula. 💛
+  </footer>
+
+  <script>
+    // Scroll suave a secciones
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      window.scrollTo({
+        top: el.offsetTop - 80,
+        behavior: "smooth"
+      });
+    }
+
+    // Animación de aparición al hacer scroll
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    revealElements.forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
