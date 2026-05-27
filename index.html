@@ -826,6 +826,7 @@
         <a href="#pelis">Películas</a>
         <a href="#libros">Libros</a>
         <a href="#significados">Significados</a>
+        <a href="#canciones">Canciones</a>
         <a href="#plata-plomo">Plata plomo</a>
       </div>
     </nav>
@@ -1139,6 +1140,49 @@
   </div>
 
 </section>
+    
+<!-- CANCIONES QUE ME RECUERDAN A TI -->
+<section id="canciones" class="reveal canciones-section">
+
+  <div class="canciones-header">
+    <img src="favicon.png" class="canciones-heart">
+    <h2>Canciones que me recuerdan a ti</h2>
+    <p>
+      Hay canciones que no solo suenan: se quedan.  
+      Estas tres siempre me llevan a ti, por lo que dicen, por cómo suenan  
+      o simplemente porque tienen algo que me recuerda a lo que eres.
+    </p>
+  </div>
+
+  <div class="canciones-grid">
+
+    <!-- YELLOW -->
+    <div class="cancion-card">
+      <h3>Yellow</h3>
+      <span class="cancion-artista">Coldplay</span>
+      <a href="https://www.youtube.com/watch?v=q7mlB-adMBc&list=RDq7mlB-adMBc&start_radio=1&pp=ygUPeWVsbG93IGNvbGRwbGF5oAcB" 
+         target="_blank" class="btn-cancion">Escuchar</a>
+    </div>
+
+    <!-- EVERY BREATH YOU TAKE -->
+    <div class="cancion-card">
+      <h3>Every Breath You Take</h3>
+      <span class="cancion-artista">The Police</span>
+      <a href="https://www.youtube.com/watch?v=FXozwCdSLb0&list=RDFXozwCdSLb0&start_radio=1&pp=ygUVZXZlcnkgYnJlYXRoIHlvdSB0YWtloAcB0gcJCQoLAYcqIYzv" 
+         target="_blank" class="btn-cancion">Escuchar</a>
+    </div>
+
+    <!-- +[MÁS] -->
+    <div class="cancion-card">
+      <h3>+ (Más)</h3>
+      <span class="cancion-artista">Aitana</span>
+      <a href="https://www.youtube.com/watch?v=qswjSWQacao&list=RDqswjSWQacao&start_radio=1&pp=ygUKbWFzIGFpdGFuYaAHAQ%3D%3D" 
+         target="_blank" class="btn-cancion">Escuchar</a>
+    </div>
+
+  </div>
+
+</section>
 
     <!-- PLATA PLOMO -->
     <section id="plata-plomo" class="reveal">
@@ -1239,6 +1283,89 @@ function mostrarSecreto() {
   background: radial-gradient(circle at top, rgba(255,105,180,0.12), rgba(255,217,59,0.12));
   border-color: rgba(255,105,180,0.4);
   box-shadow: 0 0 25px rgba(255,105,180,0.15);
+}
+  /* SECCIÓN CANCIONES DIFERENTE */
+.canciones-section {
+  margin-top: 3rem;
+  padding: 2.5rem 1.5rem;
+  background: radial-gradient(circle at top, rgba(255,105,180,0.12), rgba(255,217,59,0.08));
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+}
+
+.canciones-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.canciones-heart {
+  width: 70px;
+  margin-bottom: 1rem;
+  animation: pulseHeart 2.8s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px rgba(255,105,180,0.6));
+}
+
+.canciones-header h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.canciones-header p {
+  opacity: 0.8;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.canciones-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.cancion-card {
+  background: rgba(10,10,18,0.8);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 1.4rem;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cancion-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.8);
+  border-color: rgba(255,105,180,0.4);
+}
+
+.cancion-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.cancion-artista {
+  display: block;
+  opacity: 0.7;
+  margin-bottom: 1rem;
+}
+
+.btn-cancion {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--amarillo), var(--rosa));
+  color: #1b1300;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 12px 30px rgba(255,217,59,0.5);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-cancion:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(255,217,59,0.8);
 }
 </style>
 
