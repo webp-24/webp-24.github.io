@@ -83,14 +83,12 @@
       font-size: 0.9rem;
     }
 
-    .logo-circle {
-      width: 22px;
-      height: 22px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 30%, #fff 0, var(--amarillo) 40%, var(--amarillo-oscuro) 100%);
-      box-shadow: 0 0 18px rgba(255, 217, 59, 0.8);
-      animation: pulseGlow 2.4s ease-in-out infinite;
-    }
+.logo-heart {
+    width: 26px;
+    height: 26px;
+    animation: pulseHeart 2.8s ease-in-out infinite;
+    filter: drop-shadow(0 0 6px rgba(255, 105, 180, 0.6));
+}
 
     @keyframes pulseGlow {
       0%, 100% { transform: scale(1); box-shadow: 0 0 16px rgba(255, 217, 59, 0.7); }
@@ -291,37 +289,6 @@
     .orbit-dot:nth-child(2) { right: -7px; top: 50%; transform: translateY(-50%); }
     .orbit-dot:nth-child(3) { bottom: -7px; left: 50%; transform: translateX(-50%); }
     .orbit-dot:nth-child(4) { left: -7px; top: 50%; transform: translateY(-50%); }
-
-    .hero-core {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #fff 0, var(--amarillo) 40%, #f4b400 70%, #f08c00 100%);
-      box-shadow:
-        0 0 40px rgba(255, 217, 59, 0.9),
-        0 0 80px rgba(255, 217, 59, 0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-core span {
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      color: #3b2600;
-    }
-
-    .hero-core::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.7) 0, transparent 40%);
-      mix-blend-mode: screen;
-    }
 
     .hero-floating {
       position: absolute;
@@ -835,7 +802,7 @@
   <header>
     <nav class="nav">
       <div class="logo">
-        <div class="logo-circle"></div>
+        <img src="favicon.png" class="logo-heart">
         <span>Para Paula</span>
       </div>
       <div class="nav-links">
