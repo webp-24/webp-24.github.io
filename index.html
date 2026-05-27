@@ -5,6 +5,14 @@
   <title>Para Paula 💗</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" href="favicon.png" id="favicon">
+<script>
+let beat = false;
+setInterval(() => {
+  document.getElementById("favicon").setAttribute("href", beat ? "favicon.png" : "favicon.png");
+  beat = !beat;
+}, 800);
+</script>
   <style>
     :root {
       --amarillo: #ffd93b;
@@ -790,6 +798,26 @@
 .meaning-card:hover {
   transform: scale(1.05);
 }
+/* Mensajes suaves al pasar el ratón */
+.card:hover::after {
+  content: "esto también me recuerda a ti";
+  position: absolute;
+  bottom: 0.8rem;
+  right: 1rem;
+  font-size: 0.7rem;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.hero-right:hover::after {
+  content: "quédate un poco más";
+  position: absolute;
+  bottom: -2rem;
+  right: 0;
+  font-size: 0.7rem;
+  opacity: 0.25;
+  pointer-events: none;
+}
   </style>
 </head>
 <body>
@@ -802,7 +830,7 @@
   <header>
     <nav class="nav">
       <div class="logo">
-        <img src="favicon.png" class="logo-heart">
+        <img src="favicon.png" class="heart-core-img" onclick="mostrarSecreto()" style="cursor:pointer;">
         <span>Para Paula</span>
       </div>
       <div class="nav-links">
@@ -873,7 +901,9 @@
   </div>
 </div>
     </section>
-
+<p id="mensaje-secreto" style="display:none; opacity:0.85; margin-top:1.5rem; text-align:center;">
+  No te lo digo siempre, pero me importas más de lo que imaginas.
+</p>
     <!-- MÚSICA -->
     <section id="musica" class="reveal">
       <h2 class="section-title">
@@ -1168,7 +1198,15 @@
   <footer>
     Hecho con mucho amarillo, un poco de magia y un montón de cariño para Paula. 💗
   </footer>
+<p style="text-align:center; opacity:0.45; margin-top:2.5rem; font-size:0.9rem;">
+  Si algún día dudas, vuelve aquí.  
+  Aquí siempre vas a brillar.
+</p>
 
+<p style="text-align:center; opacity:0.25; margin-top:0.8rem; font-size:0.75rem;">
+  (Y si has llegado hasta el final… gracias por existir.)
+</p>
+  
   <script>
     // Scroll suave a secciones
     function scrollToSection(id) {
@@ -1197,5 +1235,26 @@
 
     revealElements.forEach((el) => observer.observe(el));
   </script>
+<script>
+function mostrarSecreto() {
+  const msg = document.getElementById("mensaje-secreto");
+  msg.style.display = "block";
+  msg.style.animation = "fadeIn 1.2s ease forwards";
+}
+</script>
+
+<style>
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Aura cálida para la sección emocional */
+.meaning-card[style*="span 2"] {
+  background: radial-gradient(circle at top, rgba(255,105,180,0.12), rgba(255,217,59,0.12));
+  border-color: rgba(255,105,180,0.4);
+  box-shadow: 0 0 25px rgba(255,105,180,0.15);
+}
+</style>
+
 </body>
 </html>
