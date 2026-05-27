@@ -1190,7 +1190,7 @@
 
   <div class="dibujo-header">
     <img src="favicon.png" class="dibujo-heart">
-    <h2>Un dibujo solo para ti</h2>
+    <h2 class="dibujo-title">Un dibujo solo para ti</h2>
     <p>
       Este dibujo lo he hecho por ti, aunque simplemente sea un paleto acromatopsico,  
       por ti me esforzaría a hacer cualquier cosa, enana.  
@@ -1199,10 +1199,14 @@
   </div>
 
   <div class="dibujo-contenedor">
-    <img src="dibujo.jpg" alt="Dibujo para Paula" class="dibujo-img">
+    <div class="dibujo-marco">
+      <img src="dibujo.jpg" alt="Dibujo para Paula" class="dibujo-img">
+      <span class="dibujo-mensaje">Hecho con cariño</span>
+    </div>
   </div>
 
 </section>
+
 
     <!-- PLATA PLOMO -->
     <section id="plata-plomo" class="reveal">
@@ -1387,33 +1391,60 @@ function mostrarSecreto() {
   transform: translateY(-2px);
   box-shadow: 0 16px 40px rgba(255,217,59,0.8);
 }
-  /* SECCIÓN DEL DIBUJO */
+  /* SECCIÓN DEL DIBUJO — LA MÁS ESPECIAL */
 .dibujo-section {
   margin-top: 3rem;
-  padding: 2.5rem 1.5rem;
-  background: radial-gradient(circle at top, rgba(255,105,180,0.15), rgba(255,217,59,0.1));
-  border-radius: 24px;
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+  padding: 3rem 1.5rem;
+  background: radial-gradient(circle at top, rgba(255,105,180,0.18), rgba(255,217,59,0.12));
+  border-radius: 28px;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 22px 50px rgba(0,0,0,0.65);
+  position: relative;
+  overflow: hidden;
 }
 
+/* Corazón flotante exclusivo */
+.dibujo-section::before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: url('favicon.png') no-repeat center/contain;
+  opacity: 0.08;
+  top: -20px;
+  right: -10px;
+  animation: flotarCorazon 10s ease-in-out infinite;
+}
+
+@keyframes flotarCorazon {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(6deg); }
+}
+
+/* Cabecera */
 .dibujo-header {
   text-align: center;
   margin-bottom: 2rem;
 }
 
 .dibujo-heart {
-  width: 80px;
+  width: 85px;
   margin-bottom: 1rem;
   animation: pulseHeart 2.8s ease-in-out infinite;
   filter: drop-shadow(0 0 14px rgba(255,105,180,0.6));
 }
 
-.dibujo-header h2 {
-  font-size: 1.8rem;
+/* Título con brillo suave */
+.dibujo-title {
+  font-size: 2rem;
   margin-bottom: 0.6rem;
+  background: linear-gradient(90deg, var(--rosa), var(--amarillo));
+  -webkit-background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 6px rgba(255,105,180,0.4));
 }
 
+/* Texto */
 .dibujo-header p {
   opacity: 0.85;
   max-width: 600px;
@@ -1422,25 +1453,53 @@ function mostrarSecreto() {
   font-size: 1rem;
 }
 
+/* Contenedor del dibujo */
 .dibujo-contenedor {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
 }
 
-.dibujo-img {
-  max-width: 100%;
-  width: 420px;
-  border-radius: 18px;
+/* Marco animado */
+.dibujo-marco {
+  padding: 1rem;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.15);
   box-shadow: 0 18px 40px rgba(0,0,0,0.7);
-  animation: fadeIn 1.4s ease forwards;
+  position: relative;
+  overflow: hidden;
+  animation: aparecerRecuerdo 1.4s ease forwards;
   opacity: 0;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes aparecerRecuerdo {
+  from { opacity: 0; transform: translateY(14px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Imagen */
+.dibujo-img {
+  max-width: 100%;
+  width: 420px;
+  border-radius: 16px;
+  display: block;
+}
+
+/* Mensaje oculto al pasar el ratón */
+.dibujo-mensaje {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 0.85rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  color: rgba(255,217,59,0.9);
+  text-shadow: 0 0 6px rgba(255,217,59,0.6);
+}
+
+.dibujo-marco:hover .dibujo-mensaje {
+  opacity: 1;
 }
 </style>
 
