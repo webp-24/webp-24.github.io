@@ -1518,6 +1518,39 @@ function mostrarSecreto() {
   border-radius: 16px;
   display: block;
 }
+  /* Tamaño perfecto del dibujo */
+.MiDibujo-image {
+  width: 100%;
+  max-width: 380px; /* Ajusta aquí si quieres más grande o más pequeño */
+  border-radius: 16px;
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+}
+/* Fondo oscuro para zoom */
+.zoom-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.zoom-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(255,217,59,0.4);
+}
+
+.zoom-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
 </style>
 <script>
 const observer = new IntersectionObserver((entries) => {
@@ -1529,5 +1562,37 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll("section.reveal").forEach(sec => observer.observe(sec));
 </script>
   
+<div id="zoomOverlay" class="zoom-overlay">
+  <img id="zoomImage" src="">
+</div>
+<script>
+const dibujo = document.querySelector(".MiDibujo-image");
+const overlay = document.getElementById("zoomOverlay");
+const zoomImg = document.getElementById("zoomImage");
+
+dibujo.addEventListener("click", () => {
+  zoomImg.src = dibujo.src;
+  overlay.classList.add("visible");
+});
+
+overlay.addEventListener("click", () => {
+  overla<script>
+const dibujo = document.querySelector(".MiDibujo-image");
+const overlay = document.getElementById("zoomOverlay");
+const zoomImg = document.getElementById("zoomImage");
+
+dibujo.addEventListener("click", () => {
+  zoomImg.src = dibujo.src;
+  overlay.classList.add("visible");
+});
+
+overlay.addEventListener("click", () => {
+  overlay.classList.remove("visible");
+});
+</script>
+y.classList.remove("visible");
+});
+</script>
+
 </body>
 </html>
