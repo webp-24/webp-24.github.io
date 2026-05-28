@@ -1561,38 +1561,6 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll("section.reveal").forEach(sec => observer.observe(sec));
 </script>
-  
-<div id="zoomOverlay" class="zoom-overlay">
-  <img id="zoomImage" src="">
-</div>
-<script>
-const dibujo = document.querySelector(".MiDibujo-image");
-const overlay = document.getElementById("zoomOverlay");
-const zoomImg = document.getElementById("zoomImage");
-
-dibujo.addEventListener("click", () => {
-  zoomImg.src = dibujo.src;
-  overlay.classList.add("visible");
-});
-
-overlay.addEventListener("click", () => {
-  overla<script>
-const dibujo = document.querySelector(".MiDibujo-image");
-const overlay = document.getElementById("zoomOverlay");
-const zoomImg = document.getElementById("zoomImage");
-
-dibujo.addEventListener("click", () => {
-  zoomImg.src = dibujo.src;
-  overlay.classList.add("visible");
-});
-
-overlay.addEventListener("click", () => {
-  overlay.classList.remove("visible");
-});
-</script>
-y.classList.remove("visible");
-});
-</script>
 
 </body>
 </html>
